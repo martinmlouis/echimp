@@ -1,10 +1,10 @@
+---        
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: echimp-apps
-  namespace: default
 spec:
-  project: default
+  project: echimp
   source:
     repoURL: https://github.com/martinmlouis/echimp.git
     targetRevision: HEAD
