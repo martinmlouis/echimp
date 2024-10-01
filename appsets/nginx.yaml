@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: nginx
-  namespace: argocd
+  namespace: argo-cd
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
@@ -27,7 +27,7 @@ spec:
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: argocd-cd
 
       # Sync policy
       syncPolicy:

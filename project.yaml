@@ -4,6 +4,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: all-apps
+  namespace: argo-cd
 spec:
   sourceRepos:
     - '*'

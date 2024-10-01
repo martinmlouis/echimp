@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
-  namesapce: argocd
+  namesapce: argo-cd
 spec:
   project: all-apps
   source:
@@ -12,7 +12,7 @@ spec:
     path: appsets
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: argo-cd
   syncPolicy:
     syncOptions:
     - CreateNamespace=true  
