@@ -14,10 +14,10 @@ spec:
       - path: appsets/charts/nginx
   template:      
     metadata:
-      name: nginx
+      name: '{{index .path.segments 1}}-{{index .path.segments 3}}' 
     spec:
       # The project the application belongs to.
-      project: default
+      project: echimps
 
       # Source of the application manifests
       source:
