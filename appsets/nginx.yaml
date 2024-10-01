@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: nginx1
+  name: nginx
   namespace: default
 spec:
   goTemplate: true
@@ -11,10 +11,10 @@ spec:
       repoURL: https://github.com/martinmlouis/echimp.git
       targetRevision: HEAD
       directories:
-      - path: appsets
+      - path: appsets/charts
   template:      
     metadata:
-      name: nginx1
+      name: nginx
     spec:
       # The project the application belongs to.
       project: default
@@ -22,11 +22,8 @@ spec:
       # Source of the application manifests
       source:
         repoURL: https://github.com/martinmlouis/echimp.git
-        targetRevision: 0.1.0
-        helm:
-          valueFiles:
-          - dev-values.yaml          
-        chart: nginx
+        targetRevision: HEAD
+        path: nginx
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
