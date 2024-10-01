@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: echimp-apps
+  namespace: default
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/martinmlouis/echimp.git
+    targetRevision: HEAD
+    path: appsets
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true  
+    - Prune=true
+    automated: 
+      prune: true 
+      selfHeal: true
+
