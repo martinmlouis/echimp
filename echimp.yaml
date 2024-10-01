@@ -5,7 +5,7 @@ metadata:
   name: nginx
   namesapce: argo-cd
 spec:
-  project: all-apps
+  project: default
   source:
     repoURL: https://github.com/martinmlouis/echimp.git
     targetRevision: HEAD
