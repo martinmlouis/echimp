@@ -11,7 +11,8 @@ spec:
       repoURL: https://github.com/martinmlouis/echimp.git
       targetRevision: HEAD
       directories:
-      - path: appsets/charts/nginx
+      - path: appsets/charts
+      revision: nginx
   template:      
     metadata:
       name: nginx
@@ -23,7 +24,7 @@ spec:
       source:
         repoURL: https://github.com/martinmlouis/echimp.git
         targetRevision: HEAD
-        path: '{{.path.path}}'
+        path: appsets/charts
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
