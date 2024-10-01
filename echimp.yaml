@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: echimp-apps
 spec:
-  project: echimp
+  project: all-apps
   source:
     repoURL: https://github.com/martinmlouis/echimp.git
     targetRevision: HEAD
