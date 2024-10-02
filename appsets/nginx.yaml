@@ -40,29 +40,35 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: echimp-v0.1.0
+  name: echimp
   namespace: argo-cd
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - environment: dev
+      - project: echimp
+      - application: nginx
+      - repoURL: http://chartmuseum.35.212.92.161.nip.io
   template:      
     metadata:
-      name: nginx
+      name: {{.name}-{{.application}}
       labels: 
-        Version: v0.1.0
-        Environment: dev
+        Environment: {{.environment}}
     spec:
       # The project the application belongs to.
-      project: echimp
+      project: {{.project}}
 
       # Source of the application manifests
       source:
-        repoURL: http://chartmuseum.35.212.92.161.nip.io
+        repoURL: {{.repoURL}}
         targetRevision: 0.1.0
         helm:
           valueFiles:
-          - dev-values.yaml
-        chart: nginx        
+          - {{.environment}}-values.yaml
+        chart: {{.application}}
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
