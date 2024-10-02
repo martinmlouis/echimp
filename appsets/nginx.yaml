@@ -58,7 +58,8 @@ spec:
              destinationCluster: https://kubernetes.default.svc
              namespace: argo-cd
        - list:
-             targetRevision: 0.1.0
+           elements:
+           - targetRevision: 0.1.0
   template:      
     metadata:
       name: '{{.name}}-{{.environment}}'
