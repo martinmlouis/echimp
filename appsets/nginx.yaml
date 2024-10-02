@@ -49,9 +49,9 @@ spec:
   - list:
       elements:
       - environment: dev
-      - project: echimp
-      - application: nginx
-      - repoURL: http://chartmuseum.35.212.92.161.nip.io
+        project: echimp
+        application: nginx
+        repoURL: http://chartmuseum.35.212.92.161.nip.io
   template:      
     metadata:
       name: {{.name}-{{.application}}
