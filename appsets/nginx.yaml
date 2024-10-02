@@ -22,7 +22,7 @@ spec:
       # Source of the application manifests
       source:
         repoURL: https://github.com/martinmlouis/echimp.git
-        targetRevision: HEAD
+        revision: HEAD
         path: appsets/charts/nginx
       # Destination cluster and namespace to deploy the application
       destination:
