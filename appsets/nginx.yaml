@@ -48,6 +48,11 @@ spec:
   generators:
   - matrix:
       generators:
+       - git:
+           repoURL: https://github.com/martinmlouis/github_builds.git
+           revision: HEAD
+           directories:
+           - path: charts/*
        - list:
            elements:
            - environment: dev
@@ -57,11 +62,6 @@ spec:
              name: nginx
              destinationCluster: https://kubernetes.default.svc
              namespace: argo-cd
-       - git:
-           repoURL: https://github.com/martinmlouis/github_builds.git
-           revision: HEAD
-           directories:
-           - path: charts/*
   template:      
     metadata:
       name: '{{.name}}-{{.environment}}'
