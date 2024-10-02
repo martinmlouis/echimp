@@ -55,9 +55,9 @@ spec:
         name: nginx
   template:      
     metadata:
-      name: {{.name}
+      name: nginx
       labels: 
-        Environment: dev
+        Environment: '{{.environment}}'
     spec:
       # The project the application belongs to.
       project: echimp
