@@ -57,9 +57,11 @@ spec:
              name: nginx
              destinationCluster: https://kubernetes.default.svc
              namespace: argo-cd
-       - list:
-           elements:
-           - targetRevision: 0.1.0
+       - git:
+           repoURL: https://github.com/martinmlouis/github_builds.git
+           revision: HEAD
+           directories:
+           - path: charts/*
   template:      
     metadata:
       name: '{{.name}}-{{.environment}}'
@@ -72,7 +74,7 @@ spec:
       # Source of the application manifests
       source:
         repoURL: '{{.repoURL}}'
-        targetRevision: '{{.targetRevision}}'
+        targetRevision: '{{.path.basename}}'
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
