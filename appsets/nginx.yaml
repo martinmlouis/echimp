@@ -71,7 +71,7 @@ spec:
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
-        chart: nginx
+        chart: '{{.name}}'
       # Destination cluster and namespace to deploy the application
       destination:
         server: '{{.destinationCluster}}'
