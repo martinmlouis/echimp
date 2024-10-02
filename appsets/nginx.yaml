@@ -53,7 +53,7 @@ spec:
     metadata:
       name: nginx
       labels: 
-        Environment: {{.environment}}
+        Environment: '{{.environment}}'
     spec:
       # The project the application belongs to.
       project: echimp
