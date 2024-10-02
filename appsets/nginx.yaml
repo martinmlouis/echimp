@@ -55,21 +55,21 @@ spec:
         name: nginx
   template:      
     metadata:
-      name: '{{.name}-{{.application}}'
+      name: '{{.project}-{{.application}}'
       labels: 
-        Environment: '{{.environment}}'
+        Environment: dev
     spec:
       # The project the application belongs to.
-      project: '{{.project}}'
+      project: echimp
 
       # Source of the application manifests
       source:
-        repoURL: '{{.repoURL}}'
+        repoURL: http://chartmuseum.35.212.92.161.nip.io
         targetRevision: 0.1.0
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
-        chart: '{{.application}}'
+        chart: nginx
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
