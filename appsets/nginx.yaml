@@ -57,7 +57,7 @@ spec:
         namespace: argo-cd
   template:      
     metadata:
-      name: nginx
+      name: '{{.name}}'
       labels: 
         Environment: '{{.environment}}'
     spec:
