@@ -36,3 +36,46 @@ spec:
         automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
           prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
           selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+---            
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: v0.1.0
+  namespace: argo-cd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/martinmlouis/echimp.git
+      directories:
+      - path: appsets/charts/v0.1.0
+      revision: HEAD
+  template:      
+    metadata:
+      name: nginx
+    spec:
+      # The project the application belongs to.
+      project: echimp
+
+      # Source of the application manifests
+      source:
+        chart: nginx
+        repoURL: https://github.com/martinmlouis/echimp.git
+        targetRevision: v0.1.0
+        path: appsets/charts/v0.1.0
+        helm:
+          valueFiles:
+          - dev-values.yaml        
+      # Destination cluster and namespace to deploy the application
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argo-cd
+
+      # Sync policy
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true  
+        automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+          prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+          selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
