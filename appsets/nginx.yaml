@@ -53,6 +53,9 @@ spec:
   template:      
     metadata:
       name: nginx
+      labels: 
+        Version: v0.1.0
+        Environment: dev
     spec:
       # The project the application belongs to.
       project: echimp
