@@ -47,20 +47,20 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - list:
-     elements:
-     - environment: prod
-       project: echimp
-       application: nginx
-       repoURL: http://chartmuseum.35.212.92.161.nip.io
-       destinationCluster: https://kubernetes.default.svc
-       namespace: argo-cd
-       targetRevision: 1.1.1
+      elements:
+      - environment: dev
+        project: echimp
+        application: nginx
+        repoURL: http://chartmuseum.35.212.92.161.nip.io
+        name: nginx
+        destinationCluster: https://kubernetes.default.svc
+        namespace: argo-cd
+        targetRevision: 0.1.0
   template:      
     metadata:
-      name: '{{.application}}'
+      name: '{{.name}}-{{.environment}}'
       labels: 
         Environment: '{{.environment}}'
-        HelmChartVersion: '{{.targetRevision}}'
     spec:
       # The project the application belongs to.
       project: '{{.project}}'
@@ -72,7 +72,7 @@ spec:
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
-        chart: '{{.application}}'
+        chart: '{{.name}}'
       # Destination cluster and namespace to deploy the application
       destination:
         server: '{{.destinationCluster}}'
