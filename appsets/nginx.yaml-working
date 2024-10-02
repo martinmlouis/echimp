@@ -46,19 +46,16 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - matrix:
-      generators:
-       - list:
-           elements:
-           - environment: dev
-             project: echimp
-             application: nginx
-             repoURL: http://chartmuseum.35.212.92.161.nip.io
-             name: nginx
-             destinationCluster: https://kubernetes.default.svc
-             namespace: argo-cd
-       - list:
-             targetRevision: 0.1.0
+  - list:
+      elements:
+      - environment: dev
+        project: echimp
+        application: nginx
+        repoURL: http://chartmuseum.35.212.92.161.nip.io
+        name: nginx
+        destinationCluster: https://kubernetes.default.svc
+        namespace: argo-cd
+        targetRevision: 0.1.0
   template:      
     metadata:
       name: '{{.name}}-{{.environment}}'
