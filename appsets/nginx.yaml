@@ -54,6 +54,7 @@ spec:
         repoURL: http://chartmuseum.35.212.92.161.nip.io
         name: nginx
         destinationCluster: https://kubernetes.default.svc
+        namespace: argo-cd
   template:      
     metadata:
       name: nginx
@@ -74,7 +75,7 @@ spec:
       # Destination cluster and namespace to deploy the application
       destination:
         server: '{{.destinationCluster}}'
-        namespace: argo-cd
+        namespace: '{{.namespace}}'
 
       # Sync policy
       syncPolicy:
