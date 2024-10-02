@@ -55,7 +55,7 @@ spec:
         name: nginx
   template:      
     metadata:
-      name: '{{.project}-{{.application}}'
+      name: nginx
       labels: 
         Environment: dev
     spec:
