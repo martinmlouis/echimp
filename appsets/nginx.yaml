@@ -3,11 +3,6 @@ kind: ApplicationSet
 metadata:
   name: nginx
   namespace: argo-cd
-  finalizers:
-    # The default behaviour is foreground cascading deletion
-    - resources-finalizer.argocd.argoproj.io
-    # Alternatively, you can use background cascading deletion
-    # - resources-finalizer.argocd.argoproj.io/background        
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
