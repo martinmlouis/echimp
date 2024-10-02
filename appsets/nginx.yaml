@@ -66,7 +66,7 @@ spec:
         targetRevision: 0.1.0
         helm:
           valueFiles:
-          - dev-values.yaml
+          - test-values.yaml
         chart: nginx        
       # Destination cluster and namespace to deploy the application
       destination:
