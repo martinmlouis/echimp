@@ -40,7 +40,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: v0.1.0
+  name: echimp-v0.1.0
   namespace: argo-cd
 spec:
   goTemplate: true
