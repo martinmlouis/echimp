@@ -55,7 +55,7 @@ spec:
         name: nginx
   template:      
     metadata:
-      name: {{.name}-{{.application}}
+      name: '{{.name}'
       labels: 
         Environment: dev
     spec:
