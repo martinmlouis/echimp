@@ -55,6 +55,7 @@ spec:
         name: nginx
         destinationCluster: https://kubernetes.default.svc
         namespace: argo-cd
+        targetRevision: 0.1.0
   template:      
     metadata:
       name: '{{.name}}-{{.environment}}'
@@ -67,7 +68,7 @@ spec:
       # Source of the application manifests
       source:
         repoURL: '{{.repoURL}}'
-        targetRevision: 0.1.0
+        targetRevision: '{{.targetRevision}}'
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
