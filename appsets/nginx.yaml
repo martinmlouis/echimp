@@ -64,7 +64,7 @@ spec:
              namespace: argo-cd
   template:      
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{.path.basename | replace "." "-"}}'
       labels: 
         Environment: '{{.environment}}'
     spec:
