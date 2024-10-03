@@ -9,7 +9,7 @@ spec:
   generators:
   - list:
      elements:
-     - environment: test
+     - environment: impl
        project: echimp
        repoURL: https://github.com/martinmlouis/github_builds.git
        name: nginx-github
@@ -61,7 +61,7 @@ spec:
   generators:
   - list:
      elements:
-     - environment: test
+     - environment: impl
        project: echimp
        repoURL: http://chartmuseum.35.212.92.161.nip.io
        name: nginx
