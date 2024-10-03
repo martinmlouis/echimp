@@ -72,7 +72,7 @@ spec:
         targetRevision: '{{.targetRevision}}'
         helm:
           valueFiles:
-          - {{.environment}}-values.yaml
+          - '{{.environment}}-values.yaml'
         chart: '{{.name}}'
       # Destination cluster and namespace to deploy the application
       destination:
