@@ -68,7 +68,7 @@ spec:
 
       # Source of the application manifests
       source:
-        repoURL: http://chartmuseum{{.environment}}.35.212.92.161.nip.io
+        repoURL: http://chartmuseum-{{.environment}}.35.212.92.161.nip.io
         targetRevision: '{{.targetRevision}}'
         helm:
           valueFiles:
