@@ -48,14 +48,14 @@ spec:
   generators:
   - list:
      elements:
-     - environment: prod
+     - environment: dev
        project: echimp
        application: nginx
        repoURL: http://chartmuseum.35.212.92.161.nip.io
        name: nginx
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: 1.1.1
+       targetRevision: 0.1.0
   template:      
     metadata:
       name: '{{.name}}'
