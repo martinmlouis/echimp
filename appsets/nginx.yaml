@@ -14,7 +14,7 @@ spec:
       revision: HEAD
   template:      
     metadata:
-      name: nginx
+      name: nginx-github
     spec:
       # The project the application belongs to.
       project: echimp
