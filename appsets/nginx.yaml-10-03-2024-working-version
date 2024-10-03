@@ -8,9 +8,9 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: https://github.com/martinmlouis/github_builds.git
+      repoURL: https://github.com/martinmlouis/echimp.git
       directories:
-      - path: charts
+      - path: appsets/charts/nginx
       revision: HEAD
   template:      
     metadata:
@@ -21,9 +21,9 @@ spec:
 
       # Source of the application manifests
       source:
-        repoURL: https://github.com/martinmlouis/github_builds.git
+        repoURL: https://github.com/martinmlouis/echimp.git
         revision: HEAD
-        path: charts/0.1.0
+        path: appsets/charts/nginx
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
