@@ -9,10 +9,10 @@ spec:
   generators:
   - list:
      elements:
-     - environment: dev
+     - environment: test
        project: echimp
        repoURL: https://github.com/martinmlouis/github_builds.git
-       name: nginx-github
+       name: nginx
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
@@ -61,7 +61,7 @@ spec:
   generators:
   - list:
      elements:
-     - environment: dev
+     - environment: test
        project: echimp
        repoURL: http://chartmuseum.35.212.92.161.nip.io
        name: nginx
