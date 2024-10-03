@@ -12,7 +12,7 @@ spec:
      - environment: test
        project: echimp
        repoURL: https://github.com/martinmlouis/github_builds.git
-       name: nginx
+       name: nginx-github
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
