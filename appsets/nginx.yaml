@@ -7,29 +7,41 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - git:
-      repoURL: https://github.com/martinmlouis/github_builds.git
-      directories:
-      - path: charts
-      revision: HEAD
+  - list:
+     elements:
+     - environment: prod
+       project: echimp
+       repoURL: https://github.com/martinmlouis/github_builds.git
+       name: nginx-github
+       destinationCluster: https://kubernetes.default.svc
+       namespace: argo-cd
+       targetRevision: 0.1.1
+       path: charts
   template:      
     metadata:
-      name: nginx-github
+      name: '{{.name}}'
+      labels: 
+        Environment: '{{.environment}}'
+        GithubChartVersion: '{{.targetRevision}}'
       finalizers:
       - resources-finalizer.argocd.argoproj.io        
     spec:
       # The project the application belongs to.
-      project: echimp
+      project: '{{.project}}'
 
       # Source of the application manifests
       source:
-        repoURL: https://github.com/martinmlouis/github_builds.git
-        revision: HEAD
-        path: charts/1.1.1
+        repoURL: '{{.repoURL}}'
+        #targetRevision: '{{.targetRevision}}'
+        revision: '{{.targetRevision}}'
+        path: '{{.path}}'
+        helm:
+          valueFiles:
+          - '{{.environment}}-values.yaml'
       # Destination cluster and namespace to deploy the application
       destination:
-        server: https://kubernetes.default.svc
-        namespace: argo-cd
+        server: '{{.destinationCluster}}'
+        namespace: '{{.namespace}}'
 
       # Sync policy
       syncPolicy:
@@ -52,9 +64,8 @@ spec:
      elements:
      - environment: prod
        project: echimp
-       application: nginx
        repoURL: http://chartmuseum.35.212.92.161.nip.io
-       name: nginx
+       name: nginx-helm
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.1
