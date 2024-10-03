@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: https://github.com/martinmlouis/github_builds.git
         revision: HEAD
-        path: charts/0.1.0
+        path: charts/0.1.1
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
