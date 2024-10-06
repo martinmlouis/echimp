@@ -1,0 +1,46 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: echimp
+  namespace: argo-cd
+spec:
+  generators:
+  - list:
+      elements:
+      - destinationCluster: https://kubernetes.default.svc
+        environment: dev
+        name: nginx
+        namespace: argo-cd
+        project: echimp
+        repoURL: http://chartmuseum.35.212.92.161.nip.io
+        targetRevision: 0.1.0
+  goTemplate: true
+  goTemplateOptions:
+  - missingkey=error
+  template:
+    metadata:
+      finalizers:
+      - resources-finalizer.argocd.argoproj.io
+      labels:
+        Environment: '{{.environment}}'
+        HelmChartVersion: '{{.targetRevision}}'
+      name: '{{.name}}'
+    spec:
+      destination:
+        namespace: '{{.namespace}}'
+        server: '{{.destinationCluster}}'
+      project: '{{.project}}'
+      source:
+        chart: '{{.name}}'
+        helm:
+          valueFiles:
+          - '{{.environment}}-values.yaml'
+        repoURL: '{{.repoURL}}'
+        targetRevision: '{{.targetRevision}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
