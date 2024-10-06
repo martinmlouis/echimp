@@ -53,7 +53,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: echimp
+  name: echimp-helmops
   namespace: argo-cd
 spec:
   goTemplate: true
