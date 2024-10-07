@@ -9,7 +9,7 @@ spec:
   - list:
       elements:
       - destinationCluster: https://kubernetes.default.svc
-        environment: prod
+        environment: dev
         name: nginx
         namespace: argo-cd
         project: echimp
