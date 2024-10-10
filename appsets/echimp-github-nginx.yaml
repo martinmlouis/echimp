@@ -9,7 +9,7 @@ spec:
   - list:
       elements:
       - destinationCluster: https://kubernetes.default.svc
-        environment: impl
+        environment: test
         name: nginx-github
         namespace: argo-cd
         path: charts
