@@ -15,7 +15,7 @@ spec:
         path: charts
         project: echimp
         repoURL: https://github.com/martinmlouis/github_builds.git
-        targetRevision: 0.1.1
+        targetRevision: 0.1.0
   goTemplate: true
   goTemplateOptions:
   - missingkey=error
