@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: echimp-dev
+  name: echimp
   namespace: argo-cd
   labels:
     Application: echimp-dev
