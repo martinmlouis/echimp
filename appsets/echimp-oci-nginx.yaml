@@ -53,8 +53,6 @@ spec:
         syncOptions:
         - CreateNamespace=true
         - PruneLast=true
-        - ApplyOutOfSyncOnly=false
-        - Replace=true
         retry:
           limit: 7
           backoff:
