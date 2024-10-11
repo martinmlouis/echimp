@@ -12,8 +12,8 @@ spec:
      elements:
      - environment: prod
        project: echimp
-       repoURL: jfrog-platform.35.212.92.161.nip.io:80/helm-virtual
-       name: cmsnginx
+       repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
+       name: nginx
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
@@ -45,9 +45,19 @@ spec:
 
       # Sync policy
       syncPolicy:
-        syncOptions:
-          - CreateNamespace=true  
         automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
           prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
           selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+          selfHeal: true
           allowEmpty: true
+        syncOptions:
+        - CreateNamespace=true
+        - PruneLast=true
+        - ApplyOutOfSyncOnly=false
+        - Replace=true
+        retry:
+          limit: 7
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
+            factor: 7      
