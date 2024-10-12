@@ -18,7 +18,7 @@ spec:
        name: echimp
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: 0.1.0
+       targetRevision: *
        dockerImage: 0.1.0  
   template:      
     metadata:
@@ -58,6 +58,7 @@ spec:
         syncOptions:
         - CreateNamespace=true
         - PruneLast=true
+        - Replace=true  
         retry:
           limit: 7
           backoff:
