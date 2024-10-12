@@ -18,7 +18,7 @@ spec:
        name: echimp
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: "*"
+       targetRevision: "0.*.*"
        dockerImage: 0.1.0  
   template:      
     metadata:
