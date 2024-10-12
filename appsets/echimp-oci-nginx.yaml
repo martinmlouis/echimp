@@ -37,8 +37,7 @@ spec:
       # Source of the application manifests
       source:
         repoURL: '{{.repoURL}}'
-        targetRevision: '*'
-        #targetRevision: '{{.targetRevision}}'
+        targetRevision: '{{.targetRevision}}'
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
