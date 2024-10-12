@@ -30,6 +30,7 @@ spec:
       finalizers:
       - resources-finalizer.argocd.argoproj.io        
     spec:
+      revisionHistoryLimit: 2
       # The project the application belongs to.
       project: '{{.project}}'
 
