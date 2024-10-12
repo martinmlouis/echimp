@@ -38,7 +38,7 @@ spec:
         helm:
           valueFiles:
           - '{{.environment}}-values.yaml'
-          passCredentials: true
+          #passCredentials: true
         chart: '{{.name}}'
       # Destination cluster and namespace to deploy the application
       destination:
