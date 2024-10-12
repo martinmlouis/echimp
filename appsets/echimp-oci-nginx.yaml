@@ -19,12 +19,14 @@ spec:
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
+       dockerImage: 0.1.0  
   template:      
     metadata:
       name: '{{.name}}'
       labels: 
         Environment: '{{.environment}}'
         HelmChartVersion: '{{.targetRevision}}'
+        DockerImage: '{{.dockerImage}}'
       finalizers:
       - resources-finalizer.argocd.argoproj.io        
     spec:
