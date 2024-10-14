@@ -23,7 +23,6 @@ spec:
       name: '{{.name}}'
       labels: 
         Environment: '{{.environment}}'
-        HelmChartVersion: '{{.targetRevision}}'
         DockerImage: '{{.dockerImage}}'
       finalizers:
       - resources-finalizer.argocd.argoproj.io        
