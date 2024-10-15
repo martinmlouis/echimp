@@ -10,14 +10,14 @@ spec:
   generators:
   - list:
      elements:
-     - environment: test
+     - environment: impl
        project: echimp
        repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
        name: server
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
-       dockerImage: 1-alpine3.17-slim
+       dockerImage: 1-alpine3.18-otel
   template:      
     metadata:
       name: '{{.name}}'
