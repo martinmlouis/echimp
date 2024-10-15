@@ -10,14 +10,14 @@ spec:
   generators:
   - list:
      elements:
-     - environment: prod
+     - environment: dev
        project: echimp
        repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
        name: echimp
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 1.1.1
-       dockerImage: stable-bookworm-perl
+       dockerImage: 1.23.4
   template:      
     metadata:
       name: '{{.name}}'
