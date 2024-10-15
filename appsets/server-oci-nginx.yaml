@@ -17,7 +17,7 @@ spec:
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
-       dockerImage: 1-alpine3.18
+       dockerImage: 1-alpine3.18-perl
   template:      
     metadata:
       name: '{{.name}}'
