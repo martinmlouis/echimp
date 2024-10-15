@@ -16,8 +16,8 @@ spec:
        name: ui
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: 0.1.1
-       dockerImage: stable-bullseye-perl
+       targetRevision: 1.1.1
+       dockerImage: 1-alpine
   template:      
     metadata:
       name: '{{.name}}'
