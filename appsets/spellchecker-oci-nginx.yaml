@@ -13,7 +13,7 @@ spec:
      - environment: impl
        project: echimp
        repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
-       name: license
+       name: spellchecker
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 1.1.1
