@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: license-oci-helmops
+  name: spellchecker-oci-helmops
   namespace: argo-cd
 spec:
   goTemplate: true
