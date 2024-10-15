@@ -1,0 +1,63 @@
+---            
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: server-oci-helmops
+  namespace: argo-cd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+     elements:
+     - environment: impl
+       project: echimp
+       repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
+       name: server
+       destinationCluster: https://kubernetes.default.svc
+       namespace: argo-cd
+       targetRevision: 1.1.1
+       dockerImage: 1-alpine3.17-perl
+  template:      
+    metadata:
+      name: '{{.name}}'
+      labels: 
+        Environment: '{{.environment}}'
+        DockerImage: '{{.dockerImage}}'
+      finalizers:
+      - resources-finalizer.argocd.argoproj.io        
+    spec:
+      revisionHistoryLimit: 2
+      # The project the application belongs to.
+      project: '{{.project}}'
+
+      # Source of the application manifests
+      source:
+        repoURL: '{{.repoURL}}'
+        targetRevision: '{{.targetRevision}}'
+        helm:
+          valueFiles:
+          - '{{.environment}}-values.yaml'
+          passCredentials: true
+        chart: '{{.name}}'
+      # Destination cluster and namespace to deploy the application
+      destination:
+        server: '{{.destinationCluster}}'
+        namespace: '{{.namespace}}'
+
+      # Sync policy
+      syncPolicy:
+        automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+          prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+          selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+          allowEmpty: false
+        syncOptions:
+        - CreateNamespace=true
+        - PruneLast=true
+        - Replace=true  
+        retry:
+          limit: 7
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
+            factor: 7      
