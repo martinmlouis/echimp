@@ -9,12 +9,12 @@ spec:
   - list:
       elements:
       - destinationCluster: https://kubernetes.default.svc
-        environment: test
+        environment: dev
         name: nginx
         namespace: argo-cd
         project: echimp
         repoURL: http://chartmuseum.35.212.92.161.nip.io
-        targetRevision: 1.1.1
+        targetRevision: 0.1.0
   goTemplate: true
   goTemplateOptions:
   - missingkey=error
@@ -44,3 +44,10 @@ spec:
           selfHeal: true
         syncOptions:
         - CreateNamespace=true
+        - PruneLast=true
+        retry:
+          limit: 7
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
+            factor: 7
