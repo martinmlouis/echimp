@@ -16,8 +16,8 @@ spec:
        name: ui
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: 1.1.1
-       dockerImage: 1.25.2-bookworm-perl
+       targetRevision: 0.1.0
+       dockerImage: 1-alpine3.19-otel
   template:      
     metadata:
       name: '{{.name}}'
