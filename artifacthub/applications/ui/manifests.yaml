@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: server-oci-helmops
+  name: ui-oci-helmops
   namespace: argo-cd
 spec:
   goTemplate: true
@@ -13,11 +13,11 @@ spec:
      - environment: dev
        project: echimp
        repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
-       name: server
+       name: ui
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.0
-       dockerImage: stable-perl
+       dockerImage: stable-bullseye-perl
   template:      
     metadata:
       name: '{{.name}}'

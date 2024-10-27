@@ -1,0 +1,28 @@
+---        
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-echimp
+  namespace: argo-cd
+  labels:
+    Application: echimp-dev
+  finalizers:
+    # The default behaviour is foreground cascading deletion
+    - resources-finalizer.argocd.argoproj.io
+    # Alternatively, you can use background cascading deletion
+    # - resources-finalizer.argocd.argoproj.io/background    
+spec:
+  project: echimp
+  source:
+    repoURL: https://github.com/martinmlouis/echimp.git
+    targetRevision: HEAD
+    path: appsets
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-cd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true  
+    automated: 
+      prune: true 
+      selfHeal: true
