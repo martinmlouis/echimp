@@ -1,17 +1,21 @@
----            
-apiVersion: v1
-kind: Secret
+---
+# this manually creates the default project
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
 metadata:
-  name: jfrog-oci-repo-credentials
+  name: echimp
   namespace: argo-cd
-  labels:
-    argocd.argoproj.io/secret-type: repository
-stringData:
-  name: jfrog-oci-repo-credentials
-  url: jfrog-platform.35.212.92.161.nip.io/helm-virtual
-  enableOCI: "true"
-  type: helm
-  username: "admin"
-  password: "Admin213"
-  ForceHttpBasicAuth: "true"
-  #insecure: "true"
+  finalizers:
+    # The default behaviour is foreground cascading deletion
+    - resources-finalizer.argocd.argoproj.io
+    # Alternatively, you can use background cascading deletion
+    # - resources-finalizer.argocd.argoproj.io/background        
+spec:
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
