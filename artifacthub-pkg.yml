@@ -1,10 +1,10 @@
 # Artifact Hub package metadata file
 version: 1.1.1 #A SemVer 2 version (required)
-name: App-of-Apps #The name of the package (only alphanum, no spaces, dashes allowed) (required)
-alternativeName: Alternative name of the package (optional)
+name: eChimp-App-of-Apps #The name of the package (only alphanum, no spaces, dashes allowed) (required)
+alternativeName: eChimp-Root-Of-App-Of-Apps #AppfOAlternative name of the package (optional)
 category: integration-delivery #Category of the package (optional) # One of: ai-machine-learning, database, integration-delivery, monitoring-logging, networking, security, storage, streaming-messaging or skip-prediction
 displayName: App-of-AppsRepo #The name of the package nicely formatted (required)
-createdAt: 2024-10-27 #The date this package was created (RFC3339 layout) (required)
+createdAt: 2006-01-02T15:04:05Z07:00 #The date this package was created (RFC3339 layout) (required)
 description: A short description of the package (required)
 #logoPath: Path to the logo image file relative to the package directory (optional, but it improves package visibility)
 #logoURL: The URL of the logo image (optional, an alternative to logoPath if the image is hosted somewhere else)
