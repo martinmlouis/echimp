@@ -21,7 +21,7 @@ appVersion: 1.16.0 #The version of the app that this contains (optional)
 containsSecurityUpdates: true # Whether this package version contains security updates (optional, boolean)
 operator: false #Whether this package is an Operator (optional, boolean)
 deprecated: false #Whether this package is deprecated (optional, boolean)
-prerelease: fasle #Whether this package version is a pre-release (optional, boolean)
+prerelease: false #Whether this package version is a pre-release (optional, boolean)
 keywords: # (optional)
   - eChimp
   - devops
