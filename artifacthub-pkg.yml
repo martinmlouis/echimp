@@ -35,11 +35,6 @@ readme: | # (optional, can be provided from a README.md file as well)
   Package documentation in markdown format
   More Readme will be added...
 install: | # (optional)
-  ### Install using kubectl:
-
-  ```shell
-  kubectl apply -f echimp/echimp-app-of-apps.yaml
-  ```
     ### Install using argocdcli:
     
 ```shell
