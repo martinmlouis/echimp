@@ -16,8 +16,8 @@ spec:
        name: spellchecker
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: 0.1.0
-       dockerImage: stable-perl
+       targetRevision: 1.1.1
+       dockerImage: stable-alpine3.17
   template:      
     metadata:
       name: '{{.name}}'

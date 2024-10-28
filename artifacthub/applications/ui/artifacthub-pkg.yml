@@ -35,9 +35,8 @@ readme: | # (optional, can be provided from a README.md file as well)
   Package documentation in markdown format
   More Readme will be added...
 install: | # (optional)
-  Brief install instructions in markdown format
-   kubectl apply -f echimp/echimp-app-of-apps.yaml
-   argocd app create app-of-apps-echimp -f echimp/echimp-app-of-apps.yaml --upsert 
+  kubectl apply -f echimp/echimp-app-of-apps.yaml
+  argocd app create app-of-apps-echimp -f echimp/echimp-app-of-apps.yaml --upsert 
 changes: # (optional - it is also possible to provide a list of strings with just the descriptions instead of using objects)
   - kind: added # Supported kinds are: added, changed, deprecated, removed, fixed and security
     description: cool feature
