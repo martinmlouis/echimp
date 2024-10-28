@@ -1,16 +1,16 @@
 # Artifact Hub package metadata file
-version: 1.1.1 #A SemVer 2 version (required)
+version: 1.1.2 #A SemVer 2 version (required)
 name: eChimp-App-of-Apps #The name of the package (only alphanum, no spaces, dashes allowed) (required)
 alternativeName: eChimp #AppfOAlternative name of the package (optional)
 category: integration-delivery #Category of the package (optional) # One of: ai-machine-learning, database, integration-delivery, monitoring-logging, networking, security, storage, streaming-messaging or skip-prediction
-displayName: "eChimp App of Apps Repo" #The name of the package nicely formatted (required)
+displayName: "eChimp App of Apps Manifest" #The name of the package nicely formatted (required)
 createdAt: "2024-10-27T01:02:03Z" #The date this package was created (RFC3339 layout) (required)
 description: A short description of the package (required)
 #logoPath: Path to the logo image file relative to the package directory (optional, but it improves package visibility)
 #logoURL: The URL of the logo image (optional, an alternative to logoPath if the image is hosted somewhere else)
 #digest: String that uniquely identifies this package version (optional)
 license: Leidos CMS Devops #SPDX identifier of the package license (https://spdx.org/licenses/) (optional)
-homeURL: https://github.com/martinmlouis/echimp,git #he URL of the project home page (optional)
+homeURL: https://github.com/martinmlouis/echimp.git #The URL of the project home page (optional)
 appVersion: 1.16.0 #The version of the app that this contains (optional)
 #containersImages: # (optional)
 #  - name: Image #Image identifier (optional)
@@ -21,21 +21,23 @@ appVersion: 1.16.0 #The version of the app that this contains (optional)
 containsSecurityUpdates: true # Whether this package version contains security updates (optional, boolean)
 operator: false #Whether this package is an Operator (optional, boolean)
 deprecated: false #Whether this package is deprecated (optional, boolean)
-prerelease: true #Whether this package version is a pre-release (optional, boolean)
+prerelease: fasle #Whether this package version is a pre-release (optional, boolean)
 keywords: # (optional)
-  - A list of keywords about this package
-  - Using one or more categories names as keywords will improve package visibility
+  - eChimp
+  - devops
+  - CMS
 links: # (optional)
-  - name: Title of the link (required for each link)
-    url: URL of the link (required for each link)
+  - name: support
+    url: https://slack.com
+  - name: Phone
+    url: https://oncall.com    
 readme: | # (optional, can be provided from a README.md file as well)
   Package documentation in markdown format
-
-  Content added here will be rendered on Artifact Hub
+  More Readme will be added...
 install: | # (optional)
   Brief install instructions in markdown format
-
-  Content added here will be displayed when the INSTALL button on the package details page is clicked.
+   kubectl apply -f echimp/echimp-app-of-apps.yaml
+   argocd app create app-of-apps-echimp -f echimp/echimp-app-of-apps.yaml --upsert 
 changes: # (optional - it is also possible to provide a list of strings with just the descriptions instead of using objects)
   - kind: added # Supported kinds are: added, changed, deprecated, removed, fixed and security
     description: cool feature
@@ -50,10 +52,19 @@ changes: # (optional - it is also possible to provide a list of strings with jus
       - name: GitHub Issue
         url: https://github.com/issue-url
 maintainers: # (optional)
-  - name: The maintainer name (required for each maintainer)
-    email: The maintainer email (required for each maintainer)
+  - name: martinlourduswamy
+    email: martin.lourduswamy@leidos.com
+  - name: Patrick Mobely
+    email: patrick.mobely@leidos.com
+  - name: Keith Cross
+    email: keith.cross@leidos.com
+  - name: Sydney Waters
+    email: sydney.waters@leidos.com
+  - name: Kiran Yanamadala
+    email: kiran.yanamadala@leidos.com
+    
 provider: # (optional)
-  name: The name of the individual, company, or service that provides this package
+  name: Leidos CMS DevOps #The name of the individual, company, or service that provides this package
 ignore: # (optional, used to ignore some falco rules or opa policies files in a package)
   - lib # Entries use .gitignore syntax)
 recommendations: # (optional, list of recommended packages)
