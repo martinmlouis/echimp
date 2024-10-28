@@ -10,14 +10,14 @@ spec:
   generators:
   - list:
      elements:
-     - environment: dev
+     - environment: impl
        project: echimp
        repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
        name: spellchecker
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 0.1.1
-       dockerImage: 1.7
+       dockerImage: stable-perl
   template:      
     metadata:
       name: '{{.name}}'
