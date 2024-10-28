@@ -6,7 +6,7 @@ category: integration-delivery #Category of the package (optional) # One of: ai-
 displayName: "eChimp App of Apps Manifest" #The name of the package nicely formatted (required)
 createdAt: "2024-10-27T01:02:03Z" #The date this package was created (RFC3339 layout) (required)
 description: A short description of the package (required)
-#logoPath: Path to the logo image file relative to the package directory (optional, but it improves package visibility)
+logoPath: cms.png #Path to the logo image file relative to the package directory (optional, but it improves package visibility)
 #logoURL: The URL of the logo image (optional, an alternative to logoPath if the image is hosted somewhere else)
 #digest: String that uniquely identifies this package version (optional)
 license: Leidos CMS Devops #SPDX identifier of the package license (https://spdx.org/licenses/) (optional)
