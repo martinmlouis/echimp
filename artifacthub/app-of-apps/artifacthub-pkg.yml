@@ -36,11 +36,9 @@ readme: | # (optional, can be provided from a README.md file as well)
   More Readme will be added...
 install: | # (optional)
     ### Install using argocdcli:
-    
-```shell
+    ```shell
     argocd app create app-of-apps-echimp -f echimp/echimp-app-of-apps.yaml --upsert 
-  ```
-
+    ```
 changes: # (optional - it is also possible to provide a list of strings with just the descriptions instead of using objects)
   - kind: added # Supported kinds are: added, changed, deprecated, removed, fixed and security
     description: cool feature
