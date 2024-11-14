@@ -16,7 +16,7 @@ spec:
        name: ui
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-       targetRevision: 0.1.1
+       targetRevision: 0.1.0
        dockerImage: stable-alpine-slim
   template:      
     metadata:
