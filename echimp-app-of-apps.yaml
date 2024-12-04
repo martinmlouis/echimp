@@ -19,7 +19,7 @@ spec:
     path: appsets
   destination:
     server: https://kubernetes.default.svc
-    namespace: argo-cd
+    namespace: echimp
   syncPolicy:
     syncOptions:
     - CreateNamespace=true  
