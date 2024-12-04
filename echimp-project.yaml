@@ -11,6 +11,8 @@ metadata:
     # Alternatively, you can use background cascading deletion
     # - resources-finalizer.argocd.argoproj.io/background        
 spec:
+  sourceNamespaces:
+    - echimp
   sourceRepos:
     - '*'
   destinations:
