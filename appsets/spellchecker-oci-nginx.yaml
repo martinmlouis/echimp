@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: spellchecker-oci-helmops
-  namespace: argo-cd
+  namespace: echimp
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
@@ -15,7 +15,7 @@ spec:
        repoURL: artifactory-jcr.35.212.92.161.nip.io/helm-virtual
        name: spellchecker
        destinationCluster: https://kubernetes.default.svc
-       namespace: argo-cd
+       namespace: echimp
        targetRevision: 0.1.1
        dockerImage: alpine3.18-perl
   template:      
