@@ -12,8 +12,6 @@ metadata:
     # - resources-finalizer.argocd.argoproj.io/background        
 spec:
   sourceNamespaces:
-    - 'echimp'
-    - 'argo-cd'
     - '*'
   sourceRepos:
     - '*'
