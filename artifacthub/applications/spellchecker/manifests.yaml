@@ -17,7 +17,7 @@ spec:
        destinationCluster: https://kubernetes.default.svc
        namespace: echimp
        targetRevision: 0.1.0
-       dockerImage: stable-perl
+       dockerImage: 1.27.3
   template:      
     metadata:
       name: '{{.name}}'
