@@ -16,13 +16,8 @@ spec:
        name: ui
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
-<<<<<<< HEAD
-       targetRevision: 0.1.1
-       dockerImage: stable-alpine3.20-otel
-=======
        targetRevision: 0.1.0
        dockerImage: 1-alpine3.18-otel
->>>>>>> d09435e (test)
   template:      
     metadata:
       name: '{{.name}}'
