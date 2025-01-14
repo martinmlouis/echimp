@@ -12,12 +12,17 @@ spec:
      elements:
      - environment: impl
        project: echimp
-       repoURL: artifactory-jcr.35.212.92.161.nip.io/helm-virtual
+       repoURL: jfrog-platform.35.212.92.161.nip.io/helm-virtual
        name: ui
        destinationCluster: https://kubernetes.default.svc
-       namespace: echimp
+       namespace: argo-cd
+<<<<<<< HEAD
+       targetRevision: 0.1.1
+       dockerImage: stable-alpine3.20-otel
+=======
        targetRevision: 0.1.0
-       dockerImage: stable-alpine-slim
+       dockerImage: 1-alpine3.18-otel
+>>>>>>> d09435e (test)
   template:      
     metadata:
       name: '{{.name}}'
