@@ -17,7 +17,7 @@ spec:
        destinationCluster: https://kubernetes.default.svc
        namespace: argo-cd
        targetRevision: 1.1.1
-       dockerImage: stable-perl
+       dockerImage: 1-alpine3.18-otel
   template:      
     metadata:
       name: '{{.name}}'
